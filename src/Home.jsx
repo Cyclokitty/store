@@ -8,7 +8,6 @@ export default function Home() {
         <h1>Cyclokitty</h1>
         <img className='App-logo' src={ cat } alt="Cat logo"/>
         <p>I am vengence!</p>
-        <img />
       </header>
     </div>
   );
