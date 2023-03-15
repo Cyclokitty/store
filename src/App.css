@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   background-color: #282c34;
-  margin: 10px;
+  align-items: center;
 }
 
 .App-logo {
@@ -13,7 +13,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 25s linear;
   }
 }
 
@@ -28,9 +28,7 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
+
 
 @keyframes App-logo-spin {
   from {
@@ -42,7 +40,8 @@
 }
 
 a:link {
-  color: #fff
+  color: #fff;
+  text-decoration: none;
 }
 
 a:visited {
@@ -53,6 +52,45 @@ header h1, p {
   margin: 50px;
 }
 
-.nav {
-  border-bottom: 1px solid #fff;;
+.header-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #fff;
+  padding: 2.3em 0;
+}
+
+.logo {
+  margin-left: 5%;
+  font-size: 50px;
+}
+
+nav {
+  margin: 1.53m 0 0 5%;
+}
+
+.header-container ul li {
+  display: inline;
+  padding: 0 1.4em 0 0 ;
+  font-size: 0.8em;
+}
+
+.header-container ul li a {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 600px) {
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo {
+    margin-left: 2.3em;
+  }
+
+  nav {
+    align-self: center;
+    margin: 0 0.8em 0 0;
+  }
+
 }
