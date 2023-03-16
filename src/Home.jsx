@@ -4,6 +4,7 @@ import cat from './images/cyclokitty.jpeg';
 import './App.css';
 
 export default function Home() {
+    console.log(process.env.MY_SECRET)
   return (
     <div className="App">
       <header className="App-header">
