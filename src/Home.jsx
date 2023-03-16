@@ -1,15 +1,43 @@
-import cat from './images/cyclokitty.jpeg';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Loader from './components/Loader';
+import Card from './components/Card';
+import thingy from './images/thingy_yellow.jpg';
 import './App.css';
 
 export default function Home() {
-    console.log(process.env.REACT_APP_MY_SECRET)
+    const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    const fetchData = async() => {
+        try {
+            const res = await axios('https://madexcitingopentracker.cyclokitty.repl.co/api/tags');
+            setData(res.data);
+            setLoading(true)
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+        fetchData();       
+        return((prevLoading)  => prevLoading);
+    }, [loading])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Cyclokitty</h1>
-        <img className='App-logo' src={ cat } alt="Cat logo"/>
-        <p>I am vengence!</p>
-      </header>
+    <div className="gallery">
+      { !loading ? <Loader/> : <ul>
+        {data.map((tag, id) => (
+            <li key={id}>
+                <Card
+                    avatar={<img alt='store mascot' src={thingy} style={{width: '100%'}}/>}
+                    title={tag}
+                >
+                    A really cool {tag} thing to buy.
+                </Card>
+            </li>
+        ))}
+      </ul> }
     </div>
   );
 }

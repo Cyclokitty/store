@@ -1,0 +1,43 @@
+export default function Box({ 
+    children, 
+    backgroundColor,
+    border,
+    borderRadius,
+    color,
+    overflow,
+    fontFamily,
+    fontSize,
+    fontWeight,
+    minHeight,
+    margin,
+    padding,
+    width,
+    textAlign,
+    alignSelf,
+    style,
+    ...props 
+}) {
+    return (
+        <div 
+            {...props}
+            style={{
+                backgroundColor,
+                border,
+                borderRadius,
+                color,
+                overflow,
+                fontFamily,
+                fontSize,
+                fontWeight,
+                minHeight,
+                margin,
+                padding,
+                width,
+                textAlign,
+                ...style,  
+            }}
+        >
+            {children}
+        </div>
+    )
+}
