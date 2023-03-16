@@ -28,7 +28,21 @@
   color: white;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .loader {
+    animation: loader-spin infinite 25s linear;
+  }
+}
 
+
+@keyframes loader-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 @keyframes App-logo-spin {
   from {
@@ -64,7 +78,7 @@ li {
   align-items: center;
   padding: 20px 10px;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 10px auto;
   gap: 16px;
 }
 

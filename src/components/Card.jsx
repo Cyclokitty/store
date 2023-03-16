@@ -11,13 +11,13 @@ export default function Card({ avatar, title, children, ...rootProps }) {
             minHeight={300}
             padding={12}
             width={300}
-            margin='20 auto 20 auto'
+            margin='20px auto 20px auto'
             fontFamily='Poppins'
             {...rootProps}
         >
             {avatar ? (
                 <Box
-                    width={250}
+                    width={225}
                     overflow="hidden"
                     alignSelf='center'
                     margin='0 auto 0 auto'
