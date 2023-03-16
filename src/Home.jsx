@@ -1,10 +1,8 @@
-import * as dotenv from 'dotenv';
-dotenv.config();
 import cat from './images/cyclokitty.jpeg';
 import './App.css';
 
 export default function Home() {
-    console.log(process.env.MY_SECRET)
+    console.log(process.env.REACT_APP_MY_SECRET)
   return (
     <div className="App">
       <header className="App-header">
