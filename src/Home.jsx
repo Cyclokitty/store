@@ -1,3 +1,5 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
 import cat from './images/cyclokitty.jpeg';
 import './App.css';
 
