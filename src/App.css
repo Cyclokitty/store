@@ -94,3 +94,15 @@ nav {
   }
 
 }
+
+.textbar {
+  background-color: #fff;
+  color: #282c34;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.textbar h6 {
+  margin: 0;
+}
