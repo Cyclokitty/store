@@ -36,7 +36,7 @@ export default function Home() {
                     title={tag.toUpperCase()}                   
                 >
                     <p>A really cool, {tag.toLowerCase()} thing to buy.</p>
-                    <button onClick={() => console.log(`I clicked a button: ${tag} `)} style={{ backgroundColor:	'#fff'}}>click</button>
+                    <h5 onClick={() => console.log(`You clicked the h5 from item: ${tag}`)} style={{color: 'purple'}}>Click Here and Look in the console</h5>
                 </Card>
             </li>
         ))}
