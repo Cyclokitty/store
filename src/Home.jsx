@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import axios from 'axios';
 import Loader from './components/Loader';
 import Card from './components/Card';
@@ -15,19 +15,16 @@ export default function Home() {
             const res = await axios('https://madexcitingopentracker.cyclokitty.repl.co/api/info');
             setData(res.data.data);
             setTags(res.data.tags);
-            setLoading(true);  
-            console.log(data) 
-            console.log(tags) 
+            setLoading(true);
         } catch(err) {
             console.log(err);
         }
     }
 
-    useEffect(() => {   
-        fetchData();   
-        return((prevLoading)  => prevLoading);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [loading])
+    useState(() => {
+        fetchData()
+    },[])
+
 
   return (
     <div>
@@ -39,6 +36,7 @@ export default function Home() {
                     title={tag.toUpperCase()}                   
                 >
                     <p>A really cool, {tag.toLowerCase()} thing to buy.</p>
+                    <button onClick={() => console.log(`I clicked a button: ${tag} `)} style={{ backgroundColor:	'#fff'}}>click</button>
                 </Card>
             </li>
         ))}

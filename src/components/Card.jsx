@@ -4,10 +4,10 @@ import Box from "./Box";
 export default function Card({ avatar, title, children, ...rootProps }) {
     return (
         <Box
-            backgroundColor="#333"
-            border='4px solid white'
+            backgroundColor="#A2A2A2"
+            border='4px solid #EFEFEF'
             borderRadius={4}
-            color="#eee"
+            color="#282c34"
             minHeight={300}
             padding={12}
             width={300}
