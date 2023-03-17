@@ -32,6 +32,10 @@
   color: white;
 }
 
+.loader {
+  text-align: center;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .loader {
     animation: loader-spin infinite 25s linear;
