@@ -15,25 +15,24 @@ export default function Card({ avatar, title, children, ...rootProps }) {
             fontFamily='Poppins'
             {...rootProps}
         >
+            {title ? (
+                <Box
+                textAlign='center'
+                fontSize="1.3rem"
+                padding="10px 0"
+            >
+                {title}
+            </Box>
+            ) : null }
             {avatar ? (
                 <Box
-                    width={225}
+                    width={200}
                     overflow="hidden"
                     alignSelf='center'
                     margin='0 auto 0 auto'
                 >
                     {avatar}
                 </Box>
-            ) : null }
-
-            {title ? (
-                <Box
-                
-                fontSize="1.3rem"
-                padding="10px 0"
-            >
-                {title}
-            </Box>
             ) : null }
 
             {children ? <Box>{children}</Box> : null}     
