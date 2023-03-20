@@ -6,15 +6,13 @@ import thingy from './images/thingy_yellow.jpg';
 import './App.css';
 
 export default function Home() {
-    const [data, setData] = useState([]);
     const [tags, setTags] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const fetchData = async() => {
         try {
-            const res = await axios('https://madexcitingopentracker.cyclokitty.repl.co/api/info');
-            setData(res.data.data);
-            setTags(res.data.tags);
+            const res = await axios('https://madexcitingopentracker.cyclokitty.repl.co/api/tags');
+            setTags(res.data);
             setLoading(true);
         } catch(err) {
             console.log(err);
