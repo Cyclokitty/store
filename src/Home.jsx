@@ -1,9 +1,7 @@
 import {  useState } from 'react';
 import axios from 'axios';
 import Loader from './components/Loader';
-import Card from './components/Card';
-import thingy from './images/thingy_yellow.jpg';
-import './App.css';
+import HomeGallery from './components/HomeGallery';
 
 export default function Home() {
     const [tags, setTags] = useState([]);
@@ -26,7 +24,7 @@ export default function Home() {
 
   return (
     <div>
-      { !loading ? <Loader/> : <ul className="gallery">
+      {/* { !loading ? <Loader/> : <ul className="gallery">
         {tags.map((tag, id) => (
             <li key={id}>
                 <Card
@@ -38,7 +36,8 @@ export default function Home() {
                 </Card>
             </li>
         ))}
-      </ul> }
+      </ul> } */}
+      { !loading ? <Loader/> : <HomeGallery tags={tags}/> }
     </div>
   );
 }
