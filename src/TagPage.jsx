@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
+import TagGallery from "./components/TagGallery";
+import Loader from "./components/Loader";
 import './App.css';
 
 export default function TagPage() {
     const location = useLocation();
     const { tag } = location.state;
+    const [loading, setLoading] = useState(false);
 
     const [tags, setTags] = useState([]);
     
@@ -13,6 +16,7 @@ export default function TagPage() {
         try {
             const res = await axios(`https://madexcitingopentracker.cyclokitty.repl.co/api/${tag}`);
             setTags(res.data);
+            setLoading(true);
         } catch(err) {
             console.log(err);
         }
@@ -23,16 +27,10 @@ export default function TagPage() {
     },[])
 
     return (
-        <div>
+        <div style={{padding: '10px'}}>
             <h1>{tag} Products</h1>
-            <ul className="gallery">
-        {tags.map((tag, id) => (
-            <li key={id}>
-                <h6>{tag.name}</h6>
-            </li>
-        ))}
-      </ul>
             
+          { !loading ? <Loader/> :  <TagGallery tags={tags}/> } 
         </div>
     )
 }
