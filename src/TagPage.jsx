@@ -30,7 +30,7 @@ export default function TagPage() {
         <div style={{padding: '10px'}}>
             <h1>{tag} Products</h1>
             
-          { !loading ? <Loader/> :  <TagGallery tags={tags}/> } 
+          { !loading ? <Loader/> :  <TagGallery tags={tags} tagRoute={tag}/> } 
         </div>
     )
 }

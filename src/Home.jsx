@@ -24,19 +24,6 @@ export default function Home() {
 
   return (
     <div>
-      {/* { !loading ? <Loader/> : <ul className="gallery">
-        {tags.map((tag, id) => (
-            <li key={id}>
-                <Card
-                    avatar={<img alt='store mascot' src={thingy} style={{width: '100%', paddingTop: '20px'}}/>}
-                    title={tag.toUpperCase()}                   
-                >
-                    <p>A really cool, {tag.toLowerCase()} thing to buy.</p>
-                    <h5 onClick={() => console.log(`You clicked the h5 from item: ${tag}`)} style={{color: 'purple'}}>Click Here and Look in the console</h5>
-                </Card>
-            </li>
-        ))}
-      </ul> } */}
       { !loading ? <Loader/> : <HomeGallery tags={tags}/> }
     </div>
   );

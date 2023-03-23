@@ -1,10 +1,11 @@
 // this will hold all of the TagPage.jsx cards
 // they will display the categories/tags from the mongodb db
+
 import { Link } from 'react-router-dom';
 import Card from "./Card";
 import '../App.css';
 
-export default function TagGallery({ tags }) {
+export default function TagGallery({ tags, tagRoute }) {
 
     return (
         <ul className="gallery">
@@ -17,6 +18,10 @@ export default function TagGallery({ tags }) {
                 >
                     <p>{tag.description}</p>
                     <p>Available in {tag.variants.length} colours.</p>
+                    <Link
+                        to={`/${tagRoute}/${tag.name}`}
+                        state={{ item: {tag}}}
+                    ><h5 style={{color: 'purple', textAlign: 'center'}}>Click here to see {tag.name} products!</h5></Link>
                 </Card>
             </li>
         ))}
