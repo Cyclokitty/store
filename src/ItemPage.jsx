@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import Card from "../src/components/Card";
+import ConfettiBtn from "./components/ConfettiBtn";
 import './App.css';
 
 export default function ItemPage() {
@@ -19,7 +20,7 @@ export default function ItemPage() {
                     title={variant.colour}                   
                 >
                     <p>${variant.price.toFixed(2)}</p>
-                    
+                    <ConfettiBtn coloursList={['#66ff67']} btnText='Cart' />
                 </Card>
             </li>
         ))}
