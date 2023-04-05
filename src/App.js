@@ -4,6 +4,7 @@ import Contact from './Contact';
 import Cyclokitty from './Cyclokitty';
 import TagPage from './TagPage';
 import ItemPage from './ItemPage';
+import CartPage from './CartPage';
 import Navbar from './components/Navbar';
 import TextBar from './components/TextBar';
 import { Route, Routes } from 'react-router-dom';
@@ -19,6 +20,7 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/contact' element={<Contact/>} />
+        <Route path='/cart' element={<CartPage/>} />
         <Route path='/cyclokitty' element={<Cyclokitty/>}/>
         <Route path='/3D' element={<TagPage/>} />
           <Route path='/3D/:item' element={<ItemPage/>}/>

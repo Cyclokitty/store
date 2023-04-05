@@ -1,4 +1,5 @@
 import {  Link } from 'react-router-dom';
+import { CartIcon } from '../images/icons';
 import '../App.css';
 
 export default function Navbar() {
@@ -17,6 +18,9 @@ export default function Navbar() {
             </li>
             <li>
               <Link to='/contact'>Contact</Link>
+            </li>
+            <li>
+              <Link to='/cart'><CartIcon/></Link>
             </li>
           </ul>
         </nav>
