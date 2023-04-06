@@ -1,11 +1,15 @@
 // this will hold all of the Home.jsx cards
 // they will display the categories/tags from the mongodb db
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import Card from "./Card";
 import thingy from '../images/thingy_yellow.jpg';
 import '../App.css';
 
-export default function HomeGallery({ tags }) {
+const HomeGallery = () => {
+    const dispatch = useDispatch();
+    const { tags } = useSelector((state) => state.tags);
+    
     return (
         <ul className="gallery">
         {tags.map((tag, id) => (
@@ -25,3 +29,5 @@ export default function HomeGallery({ tags }) {
       </ul>
     )
 }
+
+export default HomeGallery;
