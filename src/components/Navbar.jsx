@@ -1,8 +1,10 @@
 import {  Link } from 'react-router-dom';
 import { CartIcon } from '../images/icons';
+import { useSelector } from 'react-redux';
 import '../App.css';
 
 export default function Navbar() {
+  const { amount } = useSelector((state) => state.cart);
     return (
         <div className='header-container'>
         <div className='logo'>
@@ -21,6 +23,11 @@ export default function Navbar() {
             </li>
             <li>
               <Link to='/cart'><CartIcon/></Link>
+              <div>
+                <p>
+                  {amount}
+                </p>
+              </div>
             </li>
           </ul>
         </nav>
