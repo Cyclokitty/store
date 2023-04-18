@@ -12,13 +12,15 @@ export default function TagPage() {
 
     const [tags, setTags] = useState([]);
 
-    const tagsUrl1 = 'https://madexcitingopentracker.cyclokitty.repl.co/api/tags';
+    const tagsUrl1 = 'https://madexcitingopentracker.cyclokitty.repl.co/api/';
 
     const tagsUrl2 = 'https://welltodoniftyautomaticparallelization.cyclokitty.repl.co/api/';
+
+    const tagsUrl3 = 'https://bristle-sage-cartoon.glitch.me/api/';
     
     const fetchData = async() => {
         try {
-            const res = await axios(`${tagsUrl2}${tag}`);
+            const res = await axios(`${tagsUrl3}${tag}`);
             setTags(res.data);
             setLoading(true);
         } catch(err) {

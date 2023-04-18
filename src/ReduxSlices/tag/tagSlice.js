@@ -5,6 +5,8 @@ const tagsUrl1 = 'https://madexcitingopentracker.cyclokitty.repl.co/api/tags';
 
 const tagsUrl2 = 'https://welltodoniftyautomaticparallelization.cyclokitty.repl.co/api/tags';
 
+const tagsUrl3 = 'https://bristle-sage-cartoon.glitch.me/api/tags';
+
 const initialState = {
     tags: [],
     isLoading: true,
@@ -12,7 +14,7 @@ const initialState = {
 
 export const getTags = createAsyncThunk('tags/getTags', async(name, thunkApi) => {
     try {
-        const res = await axios(tagsUrl2);
+        const res = await axios(tagsUrl3);
         console.log(name);
         console.log(thunkApi);
         return res.data;
