@@ -7,7 +7,6 @@ export default function ItemPage() {
     const location = useLocation();
     const { item } = location.state;
 
-    
 
     return (
         <div style={{padding: '10px'}}>
@@ -23,6 +22,7 @@ export default function ItemPage() {
                 >
                     <p>${variant.price.toFixed(2)}</p>
                     <CartButton coloursList={['#66ff67']} btnText='Add to Cart' item={{itemName:item.tag.name, itemId:item.tag._id, itemColour:variant.colour, itemPrice:variant.price, itemImg: variant.img}} />
+                    
                 </Card>
             </li>
         ))}

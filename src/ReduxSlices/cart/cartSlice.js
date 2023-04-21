@@ -31,11 +31,14 @@ const cartSlice = createSlice({
      calculateTotals: (state) => {
         let amount = 0;
         let total = 0;
+        // state.cartItems.forEach((item) => {
+        //     amount += item.amount;
+        //     total += item.amount * item.price;
+        // });
         state.cartItems.forEach((item) => {
-            amount += item.amount;
-            total += item.amount * item.price;
+            total += item.itemPrice;
         });
-        state.amount = amount;
+        
         state.total = total.toFixed(2);
      },
      showCart: (state) => {
