@@ -1,5 +1,5 @@
 import confetti from "canvas-confetti";
-import { increase } from '../ReduxSlices/cart/cartSlice';
+import { addItem } from '../ReduxSlices/cart/cartSlice';
 import { useDispatch, useSelector } from "react-redux";
 
 export default function CartButton({ coloursList, btnText, item}) {
@@ -18,7 +18,7 @@ export default function CartButton({ coloursList, btnText, item}) {
     }
 
     function dispatchIncrease(item) {
-        dispatch(increase(item));
+        dispatch(addItem(item));
     }
     
 

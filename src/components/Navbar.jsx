@@ -23,8 +23,8 @@ export default function Navbar() {
             </li>
             <li>
               <Link to='/cart'><CartIcon/></Link>
-              <div>
-                <p>
+              <div className='amount-container'>
+                <p className='total-amount'>
                   {amount}
                 </p>
               </div>

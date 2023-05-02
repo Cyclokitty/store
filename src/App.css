@@ -104,6 +104,7 @@ li {
 
 nav {
   margin: 1.53m 0 0 5%;
+  padding: 5px;
 }
 
 nav svg {
@@ -113,12 +114,32 @@ nav svg {
 
 .header-container ul li {
   display: inline;
-  padding: 0 1.4em 0 0 ;
+  padding: 0 1.6em 0 0 ;
   font-size: 0.8em;
 }
 
 .header-container ul li a {
   text-decoration: none;
+}
+
+.amount-container {
+  position: absolute;
+  top: 1.6rem;
+  right: 0.6rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: 'white';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.total-amount {
+  color: 'white';
+  margin-bottom: 0;
+  font-size: 1.25rem;
 }
 
 @media screen and (min-width: 600px) {
@@ -148,4 +169,22 @@ nav svg {
 
 .textbar h6 {
   margin: 0;
+}
+
+.cart-box {
+  margin: 10px;
+}
+
+table {
+  table-layout: fixed;
+  width: 75%;
+}
+
+td {
+  width: 25%;
+}
+
+.cart-totals {
+  margin: 20px;
+  padding: 20px;
 }

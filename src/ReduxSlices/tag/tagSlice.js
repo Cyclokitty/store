@@ -15,8 +15,6 @@ const initialState = {
 export const getTags = createAsyncThunk('tags/getTags', async(name, thunkApi) => {
     try {
         const res = await axios(tagsUrl3);
-        console.log(name);
-        console.log(thunkApi);
         return res.data;
     } catch(err) {
         console.log(err);
@@ -32,7 +30,6 @@ const tagSlice = createSlice({
                 state.isLoading = true;
             })
             .addCase(getTags.fulfilled, (state, action) => {
-                console.log(action);
                 state.isLoading = false;
                 state.tags = action.payload;
             })

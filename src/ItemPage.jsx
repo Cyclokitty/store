@@ -21,7 +21,12 @@ export default function ItemPage() {
                     title={variant.colour}                   
                 >
                     <p>${variant.price.toFixed(2)}</p>
-                    <CartButton coloursList={['#66ff67']} btnText='Add to Cart' item={{itemName:item.tag.name, itemId:item.tag._id, itemColour:variant.colour, itemPrice:variant.price, itemImg: variant.img}} />
+                    <CartButton coloursList={['#66ff67']} btnText='Add to Cart' item={
+                        {
+                            itemName:item.tag.name, itemId:variant._id, itemColour:variant.colour, itemPrice:variant.price, itemImg: variant.img,
+                            itemAmount: 1,
+                        }
+                    } />
                     
                 </Card>
             </li>
