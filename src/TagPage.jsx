@@ -17,6 +17,9 @@ export default function TagPage() {
     const tagsUrl2 = 'https://welltodoniftyautomaticparallelization.cyclokitty.repl.co/api/';
 
     const tagsUrl3 = 'https://bristle-sage-cartoon.glitch.me/api/';
+
+    const tagsUrl4 = 'http://localhost:5000/api/';
+
     
     const fetchData = async() => {
         try {
