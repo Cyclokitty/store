@@ -25,8 +25,7 @@ export const sendOrder = createAsyncThunk('cart/sendOrder', async(order, custome
         return await axios.post(orderUrl2, {
             method: 'POST',
             data: {
-                order: order.order,
-                customer: customer.customer,
+                order: order
             },
         })
     
