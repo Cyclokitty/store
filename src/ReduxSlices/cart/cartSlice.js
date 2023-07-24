@@ -1,10 +1,41 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, current } from '@reduxjs/toolkit';
+import axios from 'axios';
+import { tagsUrl1, tagsUrl2, tagsUrl3, tagsUrl4, orderUrl, orderUrl2 } from '../../constants';
 
 const initialState = {
     cartItems: [],
     amount: 0,
     total: 0,
+    order: {},
+    time: 0,
+    customer: {},
 };
+
+export const sendOrder = createAsyncThunk('cart/sendOrder', async(order, customer) => {
+    console.log(order)
+    console.log(order.order);
+    console.log(order.customer);
+    console.log(customer.customer)
+    try {
+        if (Object.keys(order.order).length === 0) {
+            console.log('no');
+            throw new Error('The cart is empty')
+        } 
+        
+        return await axios.post(orderUrl2, {
+            method: 'POST',
+            data: {
+                order: order.order,
+                customer: customer.customer,
+            },
+        })
+    
+        .then((res) => res.data);
+    }
+    catch(err) {
+        console.log(err);
+    }
+})
 
 const cartSlice = createSlice({
     name: 'cart',
@@ -12,7 +43,10 @@ const cartSlice = createSlice({
     reducers: {
      clearCart: (state) => {
         state.cartItems = [];
-        console.log('order submitted')
+        state.amount = 0;
+        state.total = 0;
+        state.order = {};
+        state.customer = {};
      },
      addItem: (state, { payload }) => {
         console.log(payload)
@@ -64,8 +98,35 @@ const cartSlice = createSlice({
     },
      showCart: (state) => {
         console.log(state.cartItems);
-     }
+     }, 
+     createOrder: (state, { payload }) => {
+        let setup = Date.now();
+        state.order = {
+            order: payload.cartItems, 
+            total: payload.total, 
+            amount: payload.amount,
+            time: setup
+        }
+        console.log(state.order)
+     },
+     createCustomer: (state, { payload }) => {
+        state.customer = {
+            name: payload.name, 
+            email: payload.email, 
+            streetAddress: payload.streetAddress, 
+            cityAddress: payload.cityAddress, 
+            postalCode: payload.postalCode, 
+            province: payload.province, 
+            country: payload.country, 
+            phone: payload.phone, 
+            cardType: payload.cardType, 
+            card: payload.card, 
+            cardExpiry: payload.cardExpiry
+        }
+        console.log(state.customer)
     }
+    },
+    
 });
 
 console.log(cartSlice.initialState);
@@ -78,6 +139,8 @@ export const {
     decrease,
     calculateTotals,
     showCart,
+    createOrder,
+    createCustomer
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

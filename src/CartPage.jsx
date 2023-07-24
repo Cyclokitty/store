@@ -1,7 +1,8 @@
 import { useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { calculateTotals, removeItem, clearCart } from '../src/ReduxSlices/cart/cartSlice';
-
+import { calculateTotals, removeItem, addItem, createOrder } from '../src/ReduxSlices/cart/cartSlice';
+import CartTable from "./components/CartTable";
 
 export default function CartPage() {
     const {cartItems, total, amount} = useSelector((state) => state.cart);
@@ -21,41 +22,22 @@ export default function CartPage() {
     return (
         <div className='cart-box'>
             <h1>Cart Page</h1>
-            <div>
-                {cartItems.map((item => {
-                    return (
-                        <table>
-                            <tr>
-                                <td>
-                                    {<img alt='store mascot' src={item.itemImg} style={{width: '50%', paddingTop: '20px'}}/>}
-                                      
-                                    </td>
-                                <td>{item.itemName}</td>
-                                <td>{item.itemColour}</td>
-                                <td>${item.itemPrice.toFixed(2)}</td>
-                                <td>{item.itemAmount}</td>
-                                <td>
-                                    <button
-                                        onClick={() => dispatch(removeItem(item.itemId))}
-                                    >
-                                        Remove 1
-                                    </button>
-                                </td>
-                                
-                            </tr>                            
-                        </table>
-                    )
-                }))}
+            <div className="cartpage-section">
+                <CartTable />
             </div>
-            <div className="cart-totals">
+            <div className="cart-totals cartpage-section">
                 <div>Total in Cart: ${total}</div>
                 <div>Number of items in cart: {amount}</div>
             </div>
-            <button
-                                        onClick={() => dispatch(clearCart())}
-                                    >
-                                        Submit Order!
-                                    </button>
+
+            <Link to={'/customer'}>
+                <button
+                    onClick={() => dispatch(createOrder({cartItems, total, amount}))}
+                >
+                    Checkout
+                </button>
+            </Link>
+            
         </div>
     )
 }

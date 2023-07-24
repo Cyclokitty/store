@@ -1,10 +1,12 @@
 import Home from './Home';
 import About from './About';
 import Contact from './Contact';
+import CustomerPage from './CustomerPage';
 import Cyclokitty from './Cyclokitty';
 import TagPage from './TagPage';
 import ItemPage from './ItemPage';
 import CartPage from './CartPage';
+import ThankYouPage from './ThankYouPage';
 import Navbar from './components/Navbar';
 import TextBar from './components/TextBar';
 import { Route, Routes } from 'react-router-dom';
@@ -38,6 +40,8 @@ function App() {
           <Route path='/soft/:item' element={<ItemPage/>}/>
         <Route path='/tough' element={<TagPage/>} />
           <Route path='/tough/:item' element={<ItemPage/>}/>
+        <Route path='/customer' element={<CustomerPage/>} />
+        <Route path='/thankyou' element={<ThankYouPage/>} />
         <Route path='*' element={<Home/>} />
       </Routes>
     </div>

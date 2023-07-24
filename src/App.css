@@ -175,16 +175,51 @@ nav svg {
   margin: 10px;
 }
 
+/* .cartpage-section {
+  width: 40%; float:left;   margin:10px;
+} */
+
 table {
   table-layout: fixed;
-  width: 75%;
+  width: 50%;
 }
 
 td {
-  width: 25%;
+  width: 15%;
+  padding: 20px;
+}
+
+.table-amount {
+  margin: 15px;
 }
 
 .cart-totals {
   margin: 20px;
   padding: 20px;
+}
+
+.customer-info {
+  position: relative;
+  width: 50vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  max-height: 100%;
+}
+
+.customer-info form {
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-info form input {
+  height: 2.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid grey;
+  padding-left: 1rem;
+  font-weight: 500;
+  font-size: 0.88rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.8px;
 }

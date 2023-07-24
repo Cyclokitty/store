@@ -9,7 +9,7 @@ export default function ItemPage() {
 
 
     return (
-        <div style={{padding: '10px'}}>
+        <div style={{padding: '15px'}}>
             <h1>{item.tag.name}</h1>
             <p>{item.tag.description}</p>
             <ul className="gallery">
@@ -23,7 +23,8 @@ export default function ItemPage() {
                     <p>${variant.price.toFixed(2)}</p>
                     <CartButton coloursList={['#66ff67']} btnText='Add to Cart' item={
                         {
-                            itemName:item.tag.name, itemId:variant._id, itemColour:variant.colour, itemPrice:variant.price, itemImg: variant.img,
+                            itemName:item.tag.name, itemId:variant._id, itemColour:variant.colour, itemPrice:variant.price, 
+                            itemImg: variant.img,
                             itemAmount: 1,
                         }
                     } />

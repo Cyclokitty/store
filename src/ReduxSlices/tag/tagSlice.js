@@ -1,13 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { tagsUrl1, tagsUrl2, tagsUrl3, tagsUrl4, orderUrl, orderUrl2 } from '../../constants';
 import axios from 'axios';
 
-const tagsUrl1 = 'https://madexcitingopentracker.cyclokitty.repl.co/api/tags';
+// const tagsUrl1 = 'https://madexcitingopentracker.cyclokitty.repl.co/api/tags';
 
-const tagsUrl2 = 'https://welltodoniftyautomaticparallelization.cyclokitty.repl.co/api/tags';
+// const tagsUrl2 = 'https://welltodoniftyautomaticparallelization.cyclokitty.repl.co/api/tags';
 
-const tagsUrl3 = 'https://bristle-sage-cartoon.glitch.me/api/tags';
+// const tagsUrl3 = 'https://bristle-sage-cartoon.glitch.me/api/tags';
 
-const tagsUrl4 = 'http://localhost:5000/api/tags';
+// const tagsUrl4 = 'http://localhost:5000/api/tags';
 
 const initialState = {
     tags: [],
@@ -16,7 +17,7 @@ const initialState = {
 
 export const getTags = createAsyncThunk('tags/getTags', async(name, thunkApi) => {
     try {
-        const res = await axios(tagsUrl3);
+        const res = await axios(tagsUrl2);
         return res.data;
     } catch(err) {
         console.log(err);

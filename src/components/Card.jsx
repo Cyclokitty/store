@@ -4,8 +4,8 @@ import Box from "./Box";
 export default function Card({ avatar, title, children, ...rootProps }) {
     return (
         <Box
-            backgroundColor="#A2A2A2"
-            border='4px solid #EFEFEF'
+            backgroundColor="#66ff67"
+            border='4px solid white'
             borderRadius={4}
             color="#282c34"
             minHeight={300}
