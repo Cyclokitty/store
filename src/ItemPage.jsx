@@ -16,7 +16,7 @@ export default function ItemPage() {
                 {item.tag.variants.map((variant, id) => (
             <li key={variant._id}>
                 <Card
-                    style={{width: '300px', height: '400px'}}
+                    style={{width: '400px', height: '400px'}}
                     avatar={<img alt='store mascot' src={variant.img} style={{width: '100%', paddingTop: '20px'}}/>}
                     title={variant.colour}                   
                 >

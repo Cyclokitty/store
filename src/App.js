@@ -40,7 +40,8 @@ function App() {
           <Route path='/soft/:item' element={<ItemPage/>}/>
         <Route path='/tough' element={<TagPage/>} />
           <Route path='/tough/:item' element={<ItemPage/>}/>
-        <Route path='/customer' element={<CustomerPage/>} />
+        <Route path='/customer' element={<CustomerPage/>} /> 
+      {/* <Route path='/customer' element={<CustomerForm/>} /> */}
         <Route path='/thankyou' element={<ThankYouPage/>} />
         <Route path='*' element={<Home/>} />
       </Routes>

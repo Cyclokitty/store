@@ -1,9 +1,13 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import {  sendOrder, clearCart, createCustomer } from '../src/ReduxSlices/cart/cartSlice';
+import {  sendOrder, clearCart } from '../src/ReduxSlices/cart/cartSlice';
 
 export default function CustomerPage() {
+    const navigate = useNavigate();
+
+    const inputRef = useRef(null);
+
     const [ name, setName ] = useState('');
     const [ email, setEmail ] = useState('');
     const [ streetAddress, setStreetAddress ] = useState('');
@@ -23,9 +27,58 @@ export default function CustomerPage() {
         name, email, streetAddress, cityAddress, postalCode, province, country, phone, cardType, card, cardExpiry
     }
 
-    const submitOrderAndReset = () => {
-        dispatch(sendOrder({order, customer}));
-        dispatch(clearCart());
+    const validateInput = (name, email, streetAddress, cityAddress, postalCode, province, country, phone, cardType, card, cardExpiry) => {
+        if (!name.trim()) {
+            return false;
+        }
+        if (!email.trim()) {
+            return false;
+        }
+        if (!streetAddress.trim()) {
+            return false;
+        }
+        if (!cityAddress.trim()) {
+            return false;
+        }
+        if (!postalCode.trim()) {
+            return false;
+        }
+        if (!province.trim()) {
+            return false;
+        }
+        if (!country.trim()) {
+            return false;
+        }
+        if (!phone.trim()) {
+            return false;
+        }
+        if (!cardType.trim()) {
+            return false;
+        }
+        if (!card.trim()) {
+            return false;
+        }
+        if (!cardExpiry.trim()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    
+
+    const submitOrderAndReset = () => {       
+        const validInput = validateInput(name, email, streetAddress, cityAddress, postalCode, province, country, phone, cardType, card, cardExpiry);
+
+        if (!validInput) {
+            alert('Please complete order form.')
+            return null;
+        } else {
+            dispatch(sendOrder({order, customer}));
+            dispatch(clearCart());
+            navigate('/thankyou');
+        }
+        
     }
 
     return (
@@ -36,12 +89,15 @@ export default function CustomerPage() {
             <form>
                 <label>Name</label>
                 <input 
+                    ref={inputRef}
                     id='name'
                     type='text'
                     placeholder='Your first and last name ex. Jay Smith'
                     value={name}
+                    required
                     onChange={(e) => setName(e.target.value)}
                 />
+                
                 
                 <label>Email</label>
                 <input 
@@ -49,6 +105,7 @@ export default function CustomerPage() {
                     type='text'
                     placeholder='ex. bingo@example.com'
                     value={email}
+                    required
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 <label>Street Address</label>
@@ -57,6 +114,7 @@ export default function CustomerPage() {
                     type='text'
                     placeholder='123 Maple Road'
                     value={streetAddress}
+                    required
                     onChange={(e) => setStreetAddress(e.target.value)}
                 />
                 <label>City</label>
@@ -65,6 +123,7 @@ export default function CustomerPage() {
                     type='text'
                     placeholder='Toronto'
                     value={cityAddress}
+                    required
                     onChange={(e) => setCityAddress(e.target.value)}
                 />
                 <label>Province or State</label>
@@ -73,6 +132,7 @@ export default function CustomerPage() {
                     type='text'
                     placeholder='Ontario'
                     value={province}
+                    required
                     onChange={(e) => setProvince(e.target.value)}
                 />
                 <label>Postal Code</label>
@@ -81,6 +141,7 @@ export default function CustomerPage() {
                     type='text'
                     placeholder='M1P 1P1'
                     value={postalCode}
+                    required
                     onChange={(e) => setPostalCode(e.target.value)}
                 />
                 <label>Country</label>
@@ -89,6 +150,7 @@ export default function CustomerPage() {
                     type='text'
                     placeholder='Canada'
                     value={country}
+                    required
                     onChange={(e) => setCountry(e.target.value)}
                 />
                 <label>Phone Number</label>
@@ -131,6 +193,7 @@ export default function CustomerPage() {
                     type='text'
                     placeholder='DO NOT PUT IN YOUR REAL CARD NUMBER.'
                     value={card}
+                    required
                     onChange={(e) => setCard(e.target.value)}
                 />
                 <label>Credit Card Expiry</label>
@@ -143,9 +206,8 @@ export default function CustomerPage() {
                 />
                 
             </form>
-            <Link to={'/thankyou'}>
-                <button onClick={() => submitOrderAndReset() }>Complete Order!</button>
-            </Link>
+            
+            <button onClick={() => submitOrderAndReset() }>Complete Order!</button>
         </div>
     )
 }

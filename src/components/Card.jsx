@@ -4,13 +4,13 @@ import Box from "./Box";
 export default function Card({ avatar, title, children, ...rootProps }) {
     return (
         <Box
-            backgroundColor="#66ff67"
-            border='4px solid white'
+            backgroundColor="#fff"
+            border='4px solid #c0c0c0'
             borderRadius={4}
             color="#282c34"
-            minHeight={300}
+            minHeight={680}
             padding={12}
-            width={300}
+            width={580}
             margin='20px auto 20px auto'
             fontFamily='Poppins'
             {...rootProps}
@@ -26,7 +26,7 @@ export default function Card({ avatar, title, children, ...rootProps }) {
             ) : null }
             {avatar ? (
                 <Box
-                    width={200}
+                    width={300}
                     overflow="hidden"
                     alignSelf='center'
                     margin='0 auto 0 auto'
