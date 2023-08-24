@@ -23,7 +23,7 @@ export default function TagPage() {
     
     const fetchData = async() => {
         try {
-            const res = await axios(`${tagsUrl3}${tag}`);
+            const res = await axios(`${tagsUrl2}${tag}`);
             setTags(res.data);
             setLoading(true);
         } catch(err) {

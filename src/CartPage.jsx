@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
-import { calculateTotals, removeItem, addItem, createOrder } from '../src/ReduxSlices/cart/cartSlice';
-import CartTable from "./components/CartTable";
+import { calculateTotals, createOrder } from '../src/ReduxSlices/cart/cartSlice';
+import CartDisplay from "./components/CartDisplay";
 
 export default function CartPage() {
     const {cartItems, total, amount} = useSelector((state) => state.cart);
@@ -23,7 +23,7 @@ export default function CartPage() {
         <div className='cart-box'>
             <h1>Cart Page</h1>
             <div className="cartpage-section">
-                <CartTable />
+                <CartDisplay />
             </div>
             <div className="cart-totals cartpage-section">
                 <div>Total in Cart: ${total}</div>

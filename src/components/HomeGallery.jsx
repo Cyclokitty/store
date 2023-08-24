@@ -1,7 +1,7 @@
 // this will hold all of the Home.jsx cards
 // they will display the categories/tags from the mongodb db
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import Card from "./Card";
 import { 
     build,
@@ -16,7 +16,6 @@ import {
 import '../App.css';
 
 const HomeGallery = () => {
-    const dispatch = useDispatch();
     const { tags } = useSelector((state) => state.tags);
 
     const getCardImage = (tag) => {

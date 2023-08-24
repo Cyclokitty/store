@@ -10,6 +10,7 @@ import ThankYouPage from './ThankYouPage';
 import Navbar from './components/Navbar';
 import TextBar from './components/TextBar';
 import { Route, Routes } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {

@@ -1,10 +1,9 @@
 import confetti from "canvas-confetti";
 import { addItem } from '../ReduxSlices/cart/cartSlice';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch,  } from "react-redux";
 
 export default function CartButton({ coloursList, btnText, item}) {
     const dispatch = useDispatch();
-    const { cartItems, total,  amount } = useSelector((state) => state.cart);
 
     function shootConfetti() {
     
