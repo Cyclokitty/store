@@ -20,7 +20,7 @@ export default function CartPage() {
     }
 
     return (
-        <div className='cart-box'>
+        <div style={{padding: '20px'}}>
             <h1>Cart Page</h1>
             <div className="cartpage-section">
                 <CartDisplay />

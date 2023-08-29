@@ -23,7 +23,16 @@ export default function CartButton({ coloursList, btnText, item}) {
 
     return (
         <>           
-            <button  onClick={() => {shootConfetti(); dispatchIncrease(item);}}>{btnText}</button>
+            <button  onClick={() => {shootConfetti(); dispatchIncrease(item);}}style={styles.btn} >{btnText}</button>
         </>
     )
+}
+
+const styles = {
+    btn: {
+        backgroundColor: 'white',
+        border: 'none',
+        width: '50%',
+        color: 'purple'
+    }
 }

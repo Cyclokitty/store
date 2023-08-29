@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import Card from "../src/components/Card";
+import Card from 'react-bootstrap/Card'
 import CartButton from "./components/CartBtn";
 import './App.css';
 
@@ -7,20 +7,19 @@ export default function ItemPage() {
     const location = useLocation();
     const { item } = location.state;
 
-
     return (
         <div style={{padding: '15px'}}>
             <h1>{item.tag.name}</h1>
             <p>{item.tag.description}</p>
             <ul className="gallery">
                 {item.tag.variants.map((variant, id) => (
+                    
             <li key={variant._id}>
                 <Card
-                    style={{width: '400px', height: '400px'}}
-                    avatar={<img alt='store mascot' src={variant.img} style={{width: '100%', paddingTop: '20px'}}/>}
-                    title={variant.colour}                   
-                >
-                    <p>${variant.price.toFixed(2)}</p>
+                    style={{width: '18rem', height: '30rem', padding: '10px'}}>
+                    <Card.Title>{variant.colour.toUpperCase()}</Card.Title>    
+                    <Card.Img src={variant.img} />
+                    <Card.Text>${variant.price.toFixed(2)}</Card.Text>
                     <CartButton coloursList={['#66ff67']} btnText='Add to Cart' item={
                         {
                             itemName:item.tag.name, itemId:variant._id, itemColour:variant.colour, itemPrice:variant.price, 
@@ -36,3 +35,4 @@ export default function ItemPage() {
         </div>
     )
 }
+

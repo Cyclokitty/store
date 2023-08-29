@@ -21,7 +21,7 @@ export default function CartDisplay() {
         )
     }
     return (
-        <Container fluid='sm'>
+        <Container fluid='xs'>
             {cartItems.map(((item, id) => {
                 return (
                 <Row key={id} className="align-items-center row">
