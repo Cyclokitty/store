@@ -16,7 +16,7 @@ export default function ItemPage() {
                     
             <li key={variant._id}>
                 <Card
-                    style={{width: '18rem', height: '30rem', padding: '10px'}}>
+                    style={{width: '18rem', height: '20rem', padding: '10px'}}>
                     <Card.Title>{variant.colour.toUpperCase()}</Card.Title>    
                     <Card.Img src={variant.img} />
                     <Card.Text>${variant.price.toFixed(2)}</Card.Text>

@@ -14,7 +14,7 @@ export default function TagGallery2({ tags, tagRoute }) {
                     <Link
                         to={`/${tagRoute}/${tag.name}`}
                         state={{ item: {tag}}}
-                    ><h5 style={{color: 'purple', textAlign: 'center'}}>Click here to see {tag.name} products!</h5></Link>
+                    ><Card.Text style={{color: 'purple', textAlign: 'center'}}>Click here to see {tag.name} products!</Card.Text></Link>
                 </Card>
                 </li>
             ))}

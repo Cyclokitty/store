@@ -42,10 +42,10 @@ const HomeGallery = () => {
     }
     
     return (
-        <Container fluid='md'>
+        <Container fluid='sm'>
             <Row>
                 {tags.map((tag, id) => (                   
-                    <Card key={id} style={{width: '18rem', height: '35rem', padding: '10px', margin: '20px'}}>
+                    <Card key={id} style={{width: '20rem', height: '35rem', padding: '10px', margin: '20px'}}>
                         <Row>
                             <Card.Title>{tag.toUpperCase()}</Card.Title>
                         </Row>
@@ -59,7 +59,7 @@ const HomeGallery = () => {
                             <Link
                                 to={`/${tag}`}
                                 state={{ tag: `${tag}`}}
-                            ><h5 style={{color: 'purple', textAlign: 'center'}}>Click here to see {tag} products!</h5></Link>
+                            ><Card.Text style={{color: 'purple', textAlign: 'center'}}>Click here to see {tag} products!</Card.Text></Link>
                         </Row>
                         
                     </Card>                    
@@ -73,7 +73,7 @@ const HomeGallery = () => {
 const styles = {
     cardImage: {
         objectFit: 'center',
-        padding: '3rem',
+        padding: '2rem',
     },
     cardText: {
         textAlign: 'justify'
