@@ -37,6 +37,7 @@ export default function TagPage() {
 
     return (
         <div style={{padding: '10px'}}>
+            <p>HOME{location.pathname.toUpperCase()}</p>
             <h1>{tag} Products</h1>
             
           { !loading ? <Loader/> :  <TagGallery tags={tags} tagRoute={tag}/> } 

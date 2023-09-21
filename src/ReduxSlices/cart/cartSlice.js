@@ -12,8 +12,6 @@ const initialState = {
 };
 
 export const sendOrder = createAsyncThunk('cart/sendOrder', async(order, customer) => {
-    console.log(order.order);
-    console.log(order.customer);
     try {
         if (Object.keys(order.order).length === 0) {
             console.log('no');
