@@ -30,7 +30,7 @@ export default function CartButton({ coloursList, btnText, item}) {
 
 const styles = {
     btn: {
-        backgroundColor: 'white',
+        backgroundColor: 'transparent',
         border: 'none',
         width: '50%',
         color: 'purple'

@@ -49,46 +49,51 @@ export default function ItemPage() {
 
     
     return (
-        <Container style={{padding: '25px'}} fluid >
+        <Container style={{padding: '25px'}} fluid='sm' >
             <p>HOME{location.pathname.toUpperCase()}</p>
             <Card 
-                style={{width: '65%', height: '20rem', padding: '10px', marginLeft: 'auto', marginRight: 'auto'}}
+                style={{width: '75%', height: 'auto', padding: '10px', marginLeft: 'auto', marginRight: 'auto'}}
             >
                 <Card.Title>{item.tag.name}</Card.Title>
                 <Card.Text>{item.tag.description}</Card.Text>
                 <Row>
-                    <Col>
-                        <Card.Img src={cardImg} style={{width: '50%'}} />
+                    <Col sm={6}>
+                        <Card.Img src={cardImg} style={{width: '100%', height: 'auto'}} />
                     </Col>
-                    <Col>
-                        <Row>
+                    <Col sm={6} >
+                        <Row style={{justifyContent: 'center'}}>---Colours---</Row>
+                        <Row style={{justifyContent: 'center'}}>
                             { item.tag.variants.map((variant, id) => (
                                 <Button 
                                     key={id} 
                                     onClick={() => handleBtnClick(item, variant.colour)} 
-                                    style={{backgroundColor: btnColour(variant.colour), color: 'black', width: '20%', margin: '3px'}}                                     
+                                    style={{backgroundColor: btnColour(variant.colour), color: 'black', width: '50px', height: '50px', margin:'3px'}}                                     
                                 >
-                                        {variant.colour}
+                                        
                                 </Button>
                             )) }
                         </Row>
                         <Row>
-                            <Card.Text>${cardInfo.price.toFixed(2)}</Card.Text>
+                            <p  style={{ margin: 0, textAlign: 'center'}}>---Price---</p>
                         </Row>
                         <Row>
-                        <CartButton 
-                            coloursList={['#ff00ff']} 
-                            btnText='Add to Cart' 
-                            item={
-                                {
-                                    itemName:item.tag.name, itemId:cardInfo._id, itemColour:cardInfo.colour, itemPrice:cardInfo.price, 
-                                    itemImg: cardInfo.img,
-                                    itemAmount: 1,
+                            <p  style={{ margin: 0, textAlign: 'center', fontSize: '40px'}}>${cardInfo.price.toFixed(2)}</p>
+                        </Row>
+                        <Row style={{justifyContent: 'center'}} >
+                            <CartButton 
+                                coloursList={['#ff00ff']} 
+                                btnText='Add to Cart'
+                                
+                                item={
+                                    {
+                                        itemName:item.tag.name, itemId:cardInfo._id, itemColour:cardInfo.colour, itemPrice:cardInfo.price, 
+                                        itemImg: cardInfo.img,
+                                        itemAmount: 1,
+                                    }
                                 }
-                            }
-                             />
+                            />
                         </Row>                     
-                    </Col>                    
+                    </Col>                   
                 </Row>                   
             </Card>
         </Container>
