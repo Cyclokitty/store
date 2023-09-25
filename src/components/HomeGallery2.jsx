@@ -45,7 +45,7 @@ const HomeGallery = () => {
         <Container fluid='sm'>
             <Row>
                 {tags.map((tag, id) => (                   
-                    <Card key={id} style={{width: '20rem', height: '35rem', padding: '10px', margin: '20px'}}>
+                    <Card key={id} style={{width: '30rem', height: 'auto', padding: '10px', margin: '15px'}}>
                         <Row>
                             <Card.Title>{tag.toUpperCase()}</Card.Title>
                         </Row>
